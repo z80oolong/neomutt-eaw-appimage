@@ -18,7 +18,7 @@ module Config
   end
 
   def commit_long
-    return "5190a58ba4b6d9d65aa8dc93bdf83d760913d2f1"
+    return "ef0cb550ecc8bc4e918c2d8efc16cad5dc39c2c6"
   end
 
   def commit
@@ -38,11 +38,11 @@ module Config
   end
 
   def appimage_version
-    return "v#{stable_version}-eaw-appimage-0.1.0"
+    return "v#{stable_version}-eaw-appimage-0.1.1"
   end
 
   def appimage_revision
-    return 1
+    return 2 
   end
 
   def release_dir
