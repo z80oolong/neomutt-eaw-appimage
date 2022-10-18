@@ -2,7 +2,7 @@ $:.unshift((Pathname.new(__FILE__).dirname/"..").realpath.to_s)
 
 require "lib/config"
 
-class NeomuttAT20220901Next < Formula
+class NeomuttAT20230101Next < Formula
   desc "E-mail reader with support for Notmuch, NNTP and much more"
   homepage "https://neomutt.org/"
   license "GPL-2.0-or-later"
@@ -10,7 +10,6 @@ class NeomuttAT20220901Next < Formula
   stable do
     neomutt_version = "HEAD-#{Config::commit}"
     url "https://github.com/neomutt/neomutt/archive/#{Config::commit}.tar.gz"
-    sha256 Config::commit_sha256
     version neomutt_version
 
     patch :p1, Formula["z80oolong/eaw/neomutt"].diff_data

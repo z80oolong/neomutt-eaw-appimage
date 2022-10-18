@@ -7,7 +7,7 @@ require "lib/provision/build_appimage"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/ubuntu2004"
-  config.vm.define "vm_for_build_neomutt_eaw_appimage_0.0.1"
+  config.vm.define "vm_for_build_neomutt_eaw_appimage_#{Config::current_appimage_revision}"
   config.ssh.insert_key = false
   config.vm.synced_folder "./", "/vagrant", type: "9p", disabled: false, \
                                             accessmode: "squash", owner: "1000"

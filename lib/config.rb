@@ -2,7 +2,7 @@ module Config
   module_function
 
   def stable_version?
-    false
+    return true
   end
 
   def appimage_tap_name
@@ -10,15 +10,15 @@ module Config
   end
 
   def current_tap_name
-    return "z80oolong/tmux"
+    return "z80oolong/eaw"
   end
 
   def current_formula_name
-    return "tmux"
+    return "neomutt"
   end
 
   def current_builder_name
-    return "tmux-builder"
+    return "neomutt-builder"
   end
 
   def current_appimage_name
