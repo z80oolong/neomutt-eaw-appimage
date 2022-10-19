@@ -27,7 +27,7 @@ module Config
 
   def current_version
     if stable_version? then
-      return "20201127"
+      return "20210205"
     else
       return "HEAD-#{commit}"
     end
