@@ -8,11 +8,9 @@ class NeomuttBuilder < AppImage::Builder
     fi
 
     if [ "x${HOMEBREW_PREFIX}" = "x" ]; then
-      export LD_LIBRARY_PATH="${APPDIR}/usr/lib/:${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
       export PATH="${APPDIR}/usr/bin/:${HOMEBREW_PREFIX}/bin/:${PATH:+:$PATH}"
       export XDG_DATA_DIRS="${APPDIR}/usr/share/:${HOMEBREW_PREFIX}/share/:${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}"
     else
-      export LD_LIBRARY_PATH="${APPDIR}/usr/lib/:${HOMEBREW_PREFIX}/lib/:${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
       export PATH="${APPDIR}/usr/bin/:${PATH:+:$PATH}"
       export XDG_DATA_DIRS="${APPDIR}/usr/share/:${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}"
     fi
@@ -21,12 +19,15 @@ class NeomuttBuilder < AppImage::Builder
     export LOCALEDIR="${APPDIR}/usr/share/locale"
     unset ARGV0
 
-    exec "neomutt" "$@"
-    EOS
-  end
+    export LDSO="${APPDIR}/usr/bin/ld.so"
+    export NEOMUTT="${APPDIR}/usr/bin/neomutt"
 
-  def exclude_list
-    return ["libc.so.6"]
+    if [ -x ${LDSO} ]; then
+      exec "${LDSO}" "${NEOMUTT}" "$@"
+    else
+      exec "${NEOMUTT}" "$@"
+    fi
+    EOS
   end
 
   def exec_path_list
