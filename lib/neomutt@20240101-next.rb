@@ -2,7 +2,7 @@ $:.unshift((Pathname.new(__FILE__).dirname/"..").realpath.to_s)
 
 require "lib/config"
 
-class NeomuttAT20230101Next < Formula
+class NeomuttAT20240101Next < Formula
   desc "E-mail reader with support for Notmuch, NNTP and much more"
   homepage "https://neomutt.org/"
   license "GPL-2.0-or-later"

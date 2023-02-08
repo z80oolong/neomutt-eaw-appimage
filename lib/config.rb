@@ -5,6 +5,16 @@ module Config
     return false
   end
 
+  def current_vm_provider
+    return "lxc"
+    #return "libvirt"
+  end
+
+  def current_libvirt_driver
+    return "qemu"
+    #return "kvm"
+  end
+
   def appimage_tap_name
     return "z80oolong/appimage"
   end
@@ -25,11 +35,11 @@ module Config
     return "#{current_formula_name}-eaw"
   end
 
-  def current_version
+  def current_version_list
     if stable_version? then
-      return "20220429"
+      return ["20220429"]
     else
-      return "HEAD-#{commit}"
+      return ["HEAD-#{commit}"]
     end
   end
 
@@ -38,7 +48,7 @@ module Config
   end
 
   def current_head_formula_version
-    return "20230101-next"
+    return "20240101-next"
   end
 
   def all_stable_formulae
@@ -52,7 +62,7 @@ module Config
   end
 
   def commit_long
-    return "ecc8075f9646d1ffb4c2186e446ce3c235d731dc"
+    return "e26e9d7ab4cf0dbab6f73466ea9b359d297731c7"
   end
 
   def commit
@@ -60,7 +70,7 @@ module Config
   end
 
   def current_appimage_revision
-    return 50
+    return 52
   end
 
   def release_dir
