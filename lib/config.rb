@@ -2,7 +2,7 @@ module Config
   module_function
 
   def stable_version?
-    return false
+    return true
   end
 
   def current_vm_provider
@@ -70,7 +70,7 @@ module Config
   end
 
   def current_appimage_revision
-    return 52
+    return 53
   end
 
   def release_dir
