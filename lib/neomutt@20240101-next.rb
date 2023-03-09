@@ -28,6 +28,7 @@ class NeomuttAT20240101Next < Formula
     depends_on "krb5"
     depends_on "cyrus-sasl"
     depends_on "patchelf" => :build
+    depends_on "pkg-config" => :build
   end
 
   def install
